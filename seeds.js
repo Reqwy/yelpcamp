@@ -24,24 +24,28 @@ var data = [
         "Integer mauris sem, ultrices sed leo eu, malesuada lacinia erat. Vestibulum fermentum auctor erat vel eleifend. Nulla facilisi. Nunc fermentum, augue nec venenatis congue, magna dolor sodales ligula, eget auctor leo eros vitae est. Duis ultricies, odio in mattis porta, dolor est egestas ex, id euismod magna massa vel nibh. Morbi urna augue, fermentum vel porttitor et, mattis a elit. Nullam tempus, erat at convallis efficitur, ante neque molestie felis, vel posuere leo turpis sit amet dui. Nulla vel dolor ut felis pulvinar iaculis. Nunc convallis suscipit tellus quis dictum. Phasellus purus nibh, porta quis magna eu, scelerisque pharetra ex. Phasellus in ipsum et lorem laoreet egestas. Cras non felis sed ante consequat tempus eu et nulla. Donec molestie neque non blandit pulvinar. Sed sit amet velit lacus. Etiam tristique hendrerit libero sed consequat. Quisque porttitor metus felis, at semper justo eleifend a."
     
     }
-]
+];
 
 function seedDB() {
-
-    // REmove all
-    Campground.remove({}, function (err) {
+    Comment.remove({}, function (err) {
         if (err) {
             console.log(err);
         } else {
-            console.log("remove campgrounds!");
+            console.log("remove comments");
+            // REmove all
+            Campground.remove({}, function (err) {
+                if (err) {
+                    console.log(err);
+                } else {
+                    console.log("remove campgrounds!");
+                }
+                createSome();
+            });
         }
-        createSome();
     });
 
 
-    // add  a few campgrounds
 
-    //add a few comments
 }
 
 function createSome() {
